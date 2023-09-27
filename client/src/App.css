@@ -1,0 +1,48 @@
+.posts img{
+    height: 15rem;
+    width: 15rem;
+    
+}
+.posts{
+    margin-top: 10rem;
+    margin-left:10rem;
+    margin-right: 10rem;
+}
+.posts{
+  display:grid;
+  grid-template-columns: 0.1fr 0.1fr ;
+  gap:2rem;
+ align-items: center;
+ justify-content: center;
+}
+header{
+    font-weight: bold;
+    
+
+}
+.posts p{
+    font-size: 0.9rem;
+    margin-top:-2rem;
+    text-align: center;
+}
+.posts p header{
+    font-size: 3rem;
+}
+.post{
+    width:100%;
+    text-align: center;
+}
+.content{
+    margin-top: 10rem;
+    margin-left:10rem;
+    margin-right: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+nav a{
+    padding:0.2rem;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
