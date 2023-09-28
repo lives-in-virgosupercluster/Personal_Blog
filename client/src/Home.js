@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import React,{useState,useEffect}from 'react';
+import {useSelector} from 'react-redux';
 
 
 
 function Home(){
+  const username=useSelector((state)=>state.auth.username);
+  const isLoggedIn=useSelector((state)=>state.auth.isLoggedIn);
 return (
     <main>
       <div className="content">
@@ -10,10 +14,20 @@ return (
         MyBlog
         </header>
         <nav>
-        <Link to='/Login' style={{ textDecoration: 'none' }}>
-          Login</Link>
-          <Link to='/Register' style={{ textDecoration: 'none' }}>
-            Register</Link>
+        {isLoggedIn ? (
+            // Display the username if the user is logged in
+            <span>Welcome, {username}!</span>
+          ) : (
+            // Display login and register links if the user is not logged in
+            <>
+              <Link to="/Login" style={{ textDecoration: 'none' }}>
+                Login
+              </Link>
+              <Link to="/Register" style={{ textDecoration: 'none' }}>
+                Register
+              </Link>
+            </>
+          )}
         </nav>
         
         </div>
@@ -47,4 +61,7 @@ return (
     </main>
 )
 }
+// const mapStateToProps=(state)=>({
+//   isLoggedIn:state.auth.isLoggedIn,
+// })
 export default Home;
