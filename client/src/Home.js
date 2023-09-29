@@ -1,12 +1,22 @@
 import { Link } from "react-router-dom";
 import React,{useState,useEffect}from 'react';
-import {useSelector} from 'react-redux';
-
+import {useSelector,useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom'; 
+import {logout} from './store/authSlice';
 
 
 function Home(){
   const username=useSelector((state)=>state.auth.username);
   const isLoggedIn=useSelector((state)=>state.auth.isLoggedIn);
+  const dispatch=new useDispatch();
+  const Navigate=new useNavigate();
+  const handleLogout = () => {
+    // Dispatch the logout action to clear user authentication
+    dispatch(logout());
+  };
+  const handleCreatePost=()=>{
+    Navigate('/Post');
+  }
 return (
     <main>
       <div className="content">
@@ -16,7 +26,9 @@ return (
         <nav>
         {isLoggedIn ? (
             // Display the username if the user is logged in
+            <>
             <span>Welcome, {username}!</span>
+            <button onClick={handleLogout}>Logout</button></>
           ) : (
             // Display login and register links if the user is not logged in
             <>
@@ -58,6 +70,12 @@ return (
 
         </div>
       </div>
+      {isLoggedIn &&
+            // Display the username if the user is logged in
+            <>
+            
+            <button onClick={handleCreatePost}>Logout</button></>
+}
     </main>
 )
 }

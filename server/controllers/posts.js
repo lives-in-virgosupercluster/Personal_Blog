@@ -4,16 +4,22 @@ import User from '../models/User.js';
 export const createPost=async(req,res)=>{
     try{
 
-        const {username1,title,subcontent,date,content}=req.body;
-        const user=await User.find({username:username1});
+        const {username,title,subcontent,date,content}=req.body;
+        const user=await User.find({username:username});
+        if(!user){
+            res.status(400).json({message:err.message});
+            return ;
+        }
         const newPost=new Post({
-            username1,
-            title:user.title,
-            subcontent:user.subcontent,
-            date:user.date,
-            content:user.content,
+            username,
+            title,
+            subcontent,
+            date,
+            content,
 
         });
+        // console.log(req.body);
+        console.log(user);
         await newPost.save();
         const post=await Post.find();
         res.status(201).json(post);
