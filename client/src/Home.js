@@ -3,13 +3,25 @@ import React,{useState,useEffect}from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
 import {logout} from './store/authSlice';
-
+import axios from 'axios';
 
 function Home(){
   const username=useSelector((state)=>state.auth.username);
   const isLoggedIn=useSelector((state)=>state.auth.isLoggedIn);
+  const [posts, setPosts] = useState([]);
   const dispatch=new useDispatch();
   const Navigate=new useNavigate();
+  useEffect(() => {
+    // Fetch data from your backend API (replace 'YOUR_API_ENDPOINT' with the actual URL)
+    axios.get('http://localhost:3001/posts/')
+      .then((response) => {
+        // Set the retrieved data in the 'posts' state
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.error('API error:', error);
+      });
+  }, []);
   const handleLogout = () => {
     // Dispatch the logout action to clear user authentication
     dispatch(logout());
@@ -45,31 +57,16 @@ return (
         </div>
       
       <div className="post">
-        <div className="posts">
-          <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt=""></img>
-          
-          <p><header>
-            ChatWithGit
-          </header>A relative newcomer on the ChatGPT store, ChatWithGit allows you to search GitHub with ChatGPT to find code that can help you out. It provides a snippet of the code and a link to the actual repository. Needless to say, this is a big time saver when you are trying not to reinvent the wheel.</p>
-
+      {posts.map((post, index) => (
+        <div className="posts" key={index}>
+          <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} />
+          <p>
+            <header>{post.title}</header>
+            {post.subcontent}
+          </p>
         </div>
-        <div className="posts">
-          <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt=""></img>
-          
-          <p><header>
-            ChatWithGit
-          </header>A relative newcomer on the ChatGPT store, ChatWithGit allows you to search GitHub with ChatGPT to find code that can help you out. It provides a snippet of the code and a link to the actual repository. Needless to say, this is a big time saver when you are trying not to reinvent the wheel.</p>
-
-        </div>
-        <div className="posts">
-          <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt=""></img>
-
-          <p><header>
-            ChatWithGit
-          </header>A relative newcomer on the ChatGPT store, ChatWithGit allows you to search GitHub with ChatGPT to find code that can help you out. It provides a snippet of the code and a link to the actual repository. Needless to say, this is a big time saver when you are trying not to reinvent the wheel.</p>
-
-        </div>
-      </div>
+      ))}
+    </div>
       {isLoggedIn &&
             // Display the username if the user is logged in
             <>
