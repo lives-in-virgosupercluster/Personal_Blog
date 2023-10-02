@@ -62,7 +62,7 @@ return (
           <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} />
           <p>
             <header>{post.title}</header>
-            {post.subcontent}
+           <span>{post.subcontent}</span> 
           </p>
         </div>
       ))}
