@@ -61,7 +61,7 @@ return (
         <div className="posts" key={index}>
           <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} />
           <p>
-            <header>{post.title}</header>
+            <header> <Link to={`/post/${post._id}`}>{post.title}</Link></header>
            <span>{post.subcontent}</span> 
           </p>
         </div>
