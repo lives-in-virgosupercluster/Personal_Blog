@@ -3,6 +3,10 @@
     width: 15rem;
     
 }
+body{
+    background-color: black;
+    /* color:white; */
+}
 .posts{
     margin-top: 10rem;
     margin-left:10rem;
@@ -29,15 +33,18 @@ header{
     /* margin-top:1rem; */
     font-size: 1.5rem;
     margin-top:-1rem;
+    color:#50b8e7;
 }
 .post{
     width:100%;
     text-align: center;
+    color:#aec9d5;
 }
 .content{
-    margin-top: 10rem;
+    /* margin-top: 10rem;
     margin-left:10rem;
-    margin-right: 10rem;
+    margin-right: 10rem; */
+    margin-top:1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -45,7 +52,7 @@ header{
 nav a{
     padding:0.2rem;
     text-decoration: none;
-    color:black;
+    /* color:white; */
     font-weight: bold;
 }
 .post p{
@@ -55,7 +62,19 @@ nav a{
     width:10rem;
     word-wrap: break-word;
 }
-header{
-    padding:0rem;
-    margin:0rem;
+
+.navtext{
+    font-size:1.2rem;
+    color:#50b8e7;
+    
+}
+.logo{
+    height: 10rem;
+    width: 20rem;
+}
+nav{
+    margin-top:5rem;
+}
+.postheader a{
+    color:#50b8e7;
 }

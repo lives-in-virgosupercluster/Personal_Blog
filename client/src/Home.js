@@ -4,6 +4,8 @@ import {useSelector,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
 import {logout} from './store/authSlice';
 import axios from 'axios';
+import harshpic from "./images/Logo-harsh-cool.png";
+
 
 function Home(){
   const username=useSelector((state)=>state.auth.username);
@@ -32,9 +34,14 @@ function Home(){
 return (
     <main>
       <div className="content">
-      <header>
-        MyBlog
-        </header>
+      <img
+              src={harshpic} // Replace with your image URL
+              alt="harsh"
+              width="200"
+              height="200"
+              className="logo"
+            />
+       
         <nav>
         {isLoggedIn ? (
             // Display the username if the user is logged in
@@ -44,10 +51,10 @@ return (
           ) : (
             // Display login and register links if the user is not logged in
             <>
-              <Link to="/Login" style={{ textDecoration: 'none' }}>
+              <Link to="/Login" style={{ textDecoration: 'none' }} className="navtext">
                 Login
               </Link>
-              <Link to="/Register" style={{ textDecoration: 'none' }}>
+              <Link to="/Register" style={{ textDecoration: 'none' }} className="navtext">
                 Register
               </Link>
             </>
@@ -61,7 +68,7 @@ return (
         <div className="posts" key={index}>
           <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} />
           <p>
-            <header> <Link to={`/post/${post._id}`} style={{ textDecoration: 'none' ,color:"black"}}>{post.title}</Link></header>
+            <header className="postheader"> <Link to={`/post/${post._id}`} style={{ textDecoration: 'none' }}>{post.title}</Link></header>
            <span>{post.subcontent}</span> 
           </p>
         </div>
