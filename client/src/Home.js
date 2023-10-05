@@ -66,10 +66,10 @@ return (
       <div className="post">
       {posts.map((post, index) => (
         <div className="posts" key={index}>
-          <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} />
+          {/* <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} /> */}
           <p>
             <header className="postheader"> <Link to={`/post/${post._id}`} style={{ textDecoration: 'none' }}>{post.title}</Link></header>
-           <span>{post.subcontent}</span> 
+           <span>{post.subcontent.slice(0, 50)}{post.subcontent.length > 50 ? '...' : ''}</span> 
           </p>
         </div>
       ))}
