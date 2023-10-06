@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {logout} from './store/authSlice';
 import axios from 'axios';
 import harshpic from "./images/Logo-harsh-cool.png";
-
+import Sidebar from "./Sidebar";
 
 function Home(){
   const username=useSelector((state)=>state.auth.username);
@@ -32,6 +32,7 @@ function Home(){
     Navigate('/Post');
   }
 return (
+  <div className="main_page">
     <main>
       <div className="content">
       <img
@@ -81,6 +82,10 @@ return (
             <button onClick={handleCreatePost}>Logout</button></>
 }
     </main>
+    <aside className="sidebar">
+      <Sidebar></Sidebar>
+    </aside>
+    </div>
 )
 }
 // const mapStateToProps=(state)=>({

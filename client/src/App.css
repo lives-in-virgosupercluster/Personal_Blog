@@ -4,14 +4,14 @@
     
 }
 body{
-    background-color: black;
+    background-color:black;
     /* color:white; */
 }
 .posts{
     margin-top: 10rem;
     margin-left:10rem;
     margin-right: 10rem;
-    box-shadow: 0 2px 4px rgba(129, 22, 22, 0.1); /* Box shadow */
+    /* box-shadow: 0 2px 4px rgba(129, 22, 22, 0.1); Box shadow */
     /* width: calc(33.33% - 20px); Adjust as needed for your layout */
 }
 .posts{
@@ -80,3 +80,33 @@ nav{
 .postheader a{
     color:#50b8e7;
 }
+.icons{
+    height: 1rem;
+    width:  1rem;
+}
+.profile-image{
+    border-radius:10rem;
+    height: 12rem;
+    width: 12rem;
+}
+.sidebar {
+    position: sticky;
+    top: 0; /* Adjust this value as needed to control when the sidebar becomes sticky */
+    float: right; /* Float the sidebar to the right */
+    width: 250px; /* Adjust the width of your sidebar as needed */
+    height: 100vh; /* Make the sidebar take up the full height of the viewport */
+    background-color: black; /* Adjust the background color as needed */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for a visual effect */
+    margin-top: -13rem;
+  }
+  
+  /* Add any other styles you need for your sidebar content */
+  .sidebar-content {
+    padding: 20px;
+  }
+  
+  /* Optional: Add a transition effect for smoother sticky behavior */
+  .sidebar.transition {
+    transition: top 0.3s ease-in-out;
+  }
+  
