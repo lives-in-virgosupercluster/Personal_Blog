@@ -58,7 +58,7 @@ nav a{
     font-weight: bold;
 }
 .post p{
-    width:10rem;
+    width:20rem;
 }
 .post p span{
     width:10rem;
@@ -68,14 +68,16 @@ nav a{
 .navtext{
     font-size:1.2rem;
     color:#50b8e7;
+    /* margin-left:3rem; */
     
 }
 .logo{
-    height: 10rem;
-    width: 20rem;
+    height: 8rem;
+    width: 18rem;
 }
 nav{
     margin-top:5rem;
+    margin-left:42rem;
 }
 .postheader a{
     color:#50b8e7;
@@ -86,8 +88,8 @@ nav{
 }
 .profile-image{
     border-radius:10rem;
-    height: 12rem;
-    width: 12rem;
+    height: 10rem;
+    width: 10rem;
 }
 .sidebar {
     position: sticky;
@@ -110,3 +112,17 @@ nav{
     transition: top 0.3s ease-in-out;
   }
   
+  .buttons{
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left:3rem; */
+  }
+  .icon-button{
+    /* padding:0.5rem; */
+    width: 3rem;
+    background-color: #50b8e7;
+    margin:0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }

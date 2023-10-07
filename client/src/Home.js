@@ -70,7 +70,7 @@ return (
           {/* <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} /> */}
           <p>
             <header className="postheader"> <Link to={`/post/${post._id}`} style={{ textDecoration: 'none' }}>{post.title}</Link></header>
-           <span>{post.subcontent.slice(0, 50)}{post.subcontent.length > 50 ? '...' : ''}</span> 
+           <span>{post.subcontent.slice(0, 200)}{post.subcontent.length > 200 ? '...' : ''}</span> 
           </p>
         </div>
       ))}

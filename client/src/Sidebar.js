@@ -28,12 +28,7 @@ function Sidebar() {
           <img src={githubIcon} alt="Your SVG" />
         </button>
       </a>
-      <a href="/path-to-your-resume.pdf" target="_blank" className="resume-button">
-        <button className="icon-button">
-          <img src={githubIcon} alt="Your SVG" className="icons github" />
-          Resume
-        </button>
-      </a>
+     
     </div>
   </div>
   )  
