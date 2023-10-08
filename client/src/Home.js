@@ -47,7 +47,7 @@ return (
         {isLoggedIn ? (
             // Display the username if the user is logged in
             <>
-            <span>Welcome, {username}!</span>
+            <span className="logtext">Welcome, {username}!</span>
             <button onClick={handleLogout}>Logout</button></>
           ) : (
             // Display login and register links if the user is not logged in
@@ -79,7 +79,7 @@ return (
             // Display the username if the user is logged in
             <>
             
-            <button onClick={handleCreatePost}>Logout</button></>
+            <button onClick={handleCreatePost}>Create Post</button></>
 }
     </main>
     <aside className="sidebar">

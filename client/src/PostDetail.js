@@ -1,4 +1,3 @@
-// PostDetail.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -11,6 +10,7 @@ function PostDetail() {
     // Fetch post data based on the postId
     axios.get(`http://localhost:3001/posts/posts/${postId}`)
       .then((response) => {
+        console.log(response.data+"here");
         setPost(response.data);
       })
       .catch((error) => {
@@ -18,10 +18,19 @@ function PostDetail() {
       });
   }, [postId]);
 
+  // Check if post.content exists before rendering it
+  if (!post.content) {
+    return null; // or display a loading indicator
+  }
+
   return (
     <div className="post-detail">
       <h1>{post.title}</h1>
-      <p>{post.content}</p>
+      {post.content.map((contentItem, index) => (
+        <p key={index} className="post-Name">
+          {contentItem}
+        </p>
+      ))}
     </div>
   );
 }

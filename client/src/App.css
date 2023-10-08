@@ -126,3 +126,16 @@ nav{
     border-radius: 0.5rem;
     cursor: pointer;
   }
+  .post-detail{
+    color:whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .post-Name{
+    width: 50%;
+  }
+  .logtext{
+    color: #50b8e7;
+  }
