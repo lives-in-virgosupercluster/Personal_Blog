@@ -86,7 +86,7 @@ return (
         </nav>
         
         </div>
-        {isLoggedIn &&
+        {isLoggedIn && username==='harsh.singh0310@gmail.com' &&
             // Display the username if the user is logged in
             <div className="createpost">
                <Button className={classes.darkButton} variant="contained" onClick={handleCreatePost}>

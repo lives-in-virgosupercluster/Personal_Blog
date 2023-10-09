@@ -11,8 +11,20 @@ export const register=async(req,res)=>{
             username,
             password,
         });
-        const savedUser=await newUser.save();
-        res.status(201).json(savedUser);
+        const user= await User.findOne({username:username});
+        // console.log(user.username);
+        // console.log("here");
+       // console.log(username);
+        if(!user){
+            console.log("harsh");
+            const savedUser=await newUser.save();
+            res.status(200).json(savedUser);
+            
+            
+        }
+        res.status(400).json({msg:"User Already Exists"});
+            return ;
+       
     }
     catch(err){
         res.status(500).json({error:err.message});
