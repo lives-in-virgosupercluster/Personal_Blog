@@ -6,8 +6,28 @@ import {logout} from './store/authSlice';
 import axios from 'axios';
 import harshpic from "./images/Logo-harsh-cool.png";
 import Sidebar from "./Sidebar";
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles((theme) => ({
+  darkButton: {
+    backgroundColor: '#000',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#333',
+    },
+   // fontFamily: 'Arial, sans-serif', // Set the desired font family
+   border: '1px solid rgba(255, 255, 255, 0.2)'
+  },
+  buttonText: {
+    fontFamily: 'Open Sans, sans-serif', // Set the desired font family
+    fontSize: '16px', // Set the desired font size
+    textTransform: 'none', 
+    
+  },
+}));
 function Home(){
+  const classes=useStyles();
   const username=useSelector((state)=>state.auth.username);
   const isLoggedIn=useSelector((state)=>state.auth.isLoggedIn);
   const [posts, setPosts] = useState([]);
@@ -48,7 +68,10 @@ return (
             // Display the username if the user is logged in
             <>
             <span className="logtext">Welcome, {username}!</span>
-            <button onClick={handleLogout}>Logout</button></>
+            <Button className={classes.darkButton} variant="contained" onClick={handleLogout}>
+                Logout
+      
+    </Button></>
           ) : (
             // Display login and register links if the user is not logged in
             <>
@@ -63,24 +86,28 @@ return (
         </nav>
         
         </div>
+        {isLoggedIn &&
+            // Display the username if the user is logged in
+            <div className="createpost">
+               <Button className={classes.darkButton} variant="contained" onClick={handleCreatePost}>
+                Create Post
       
+    </Button></div>
+            
+           
+}
       <div className="post">
       {posts.map((post, index) => (
         <div className="posts" key={index}>
           {/* <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} /> */}
           <p>
             <header className="postheader"> <Link to={`/post/${post._id}`} style={{ textDecoration: 'none' }}>{post.title}</Link></header>
-           <span>{post.subcontent.slice(0, 200)}{post.subcontent.length > 200 ? '...' : ''}</span> 
+           <span className="contentpara">{post.subcontent.slice(0, 200)}{post.subcontent.length > 200 ? '...' : ''}</span> 
           </p>
         </div>
       ))}
     </div>
-      {isLoggedIn &&
-            // Display the username if the user is logged in
-            <>
-            
-            <button onClick={handleCreatePost}>Create Post</button></>
-}
+     
     </main>
     <aside className="sidebar">
       <Sidebar></Sidebar>

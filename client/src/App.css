@@ -137,5 +137,22 @@ nav{
     width: 50%;
   }
   .logtext{
-    color: #50b8e7;
+    color:whitesmoke;
+  }
+  .contentpara{
+    color:whitesmoke;
+  }
+  .createpost{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:8rem;
+  }
+  .emailicon{
+    width:1rem;
+    height:1rem;
+  }
+  .linkedinicon{
+    width: 1rem;
+    height: 1rem;
   }
