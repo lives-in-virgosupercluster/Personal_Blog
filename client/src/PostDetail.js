@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import harshpic from "./images/Logo-harsh-cool.png";
+import Navbar from './Navbar';
 
 function PostDetail() {
   const { postId } = useParams();
@@ -27,6 +28,7 @@ function PostDetail() {
   return (
     <>
     
+            <Navbar></Navbar>
     <div className="post-detail">
       <h1>{post.title}</h1>
       {post.content.map((contentItem, index) => (
