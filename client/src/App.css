@@ -176,3 +176,18 @@ nav{
     width: 1rem;
     height: 1rem;
   }
+  @media (max-width: 1000px) {
+    .sidebar {
+      display: none;
+    }
+    nav{
+      margin-left:3rem;
+      margin-top:2rem;
+      font-size: 0.75rem;
+    }
+    .logo{
+      height: 5rem;
+      width: 9rem;
+
+    }
+  }
