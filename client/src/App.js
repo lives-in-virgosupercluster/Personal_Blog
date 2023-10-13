@@ -26,5 +26,5 @@ function App() {
   )
     
 }
-
+// adding comments
 export default App;
