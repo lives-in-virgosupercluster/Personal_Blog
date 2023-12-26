@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonText: {
     fontFamily: 'Open Sans, sans-serif', // Set the desired font family
-    fontSize: '16px', // Set the desired font size
+    fontSize: '0.5rem', // Set the desired font size
     textTransform: 'none', 
     
   },

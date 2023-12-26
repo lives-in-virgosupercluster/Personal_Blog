@@ -177,7 +177,8 @@ nav{
     width: 1rem;
     height: 1rem;
   }
-  @media (max-width: 1000px) {
+ 
+  @media (max-width: 1025px) {
     .sidebar {
       display: none;
     }
@@ -192,3 +193,21 @@ nav{
 
     }
   }
+  @media(max-width:300px){
+    .sidebar{
+      display:none;
+    }
+    .logo{
+      display: none;
+    }
+    .post p {
+      width:10rem;
+    }
+  .contentpara{
+    overflow-wrap: break-word;
+    white-space: normal;
+    
+  }
+      
+  }
+  

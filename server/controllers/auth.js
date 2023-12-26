@@ -10,15 +10,20 @@ export const register=async(req,res)=>{
         const newUser=new User({
             username,
             password,
+            
         });
+        
         const user= await User.findOne({username:username});
         // console.log(user.username);
         // console.log("here");
        // console.log(username);
+       console.log(user);
+       console.log(req.body);
         if(!user){
             console.log("harsh");
             const savedUser=await newUser.save();
             res.status(200).json(savedUser);
+            return ;
             
             
         }

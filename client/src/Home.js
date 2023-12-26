@@ -8,6 +8,7 @@ import harshpic from "./images/Logo-harsh-cool.png";
 import Sidebar from "./Sidebar";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   darkButton: {
@@ -21,8 +22,9 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonText: {
     fontFamily: 'Open Sans, sans-serif', // Set the desired font family
-    fontSize: '16px', // Set the desired font size
+    fontSize: '0.8rem', // Set the desired font size
     textTransform: 'none', 
+    padding:'0.1rem'
     
   },
 }));
@@ -68,7 +70,7 @@ return (
             // Display the username if the user is logged in
             <>
             <span className="logtext">Welcome, {username}!</span>
-            <Button className={classes.darkButton} variant="contained" onClick={handleLogout}>
+            <Button className={clsx(classes.darkButton, classes.buttonText)} variant="contained" onClick={handleLogout}>
                 Logout
       
     </Button></>

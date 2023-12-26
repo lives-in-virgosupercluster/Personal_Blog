@@ -17,12 +17,23 @@ import Grid from '@mui/material/Grid';
 import {login} from './store/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const theme = createTheme();
 
 function Login() {
   const[formData,setFormData]=useState({username:'',
 password:'',});
+const [showAlert, setShowAlert] = useState(false);
+
+  // Function to handle close of the Snackbar
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setShowAlert(false);
+  };
 const dispatch=new useDispatch();
 const Navigate=new useNavigate();
 const handleInputChange=(e)=>{
@@ -52,6 +63,7 @@ const handleInputChange=(e)=>{
         // and then redirect to another page.
       } else {
         // Handle login failure here, e.g., show an error message to the user.
+      setShowAlert(true);
         console.error("Login failed");
       }
     } catch (error) {
@@ -66,7 +78,7 @@ const handleInputChange=(e)=>{
         <CssBaseline />
         <div>
           <Typography component="h1" variant="h5" align="center">
-            Register
+            Login
           </Typography>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
@@ -105,9 +117,19 @@ const handleInputChange=(e)=>{
               color="primary"
               sx={{ mt: 3, mb: 2 }}
             >
-              Register
+              Login
             </Button>
           </form>
+          <Snackbar
+        open={showAlert}
+        autoHideDuration={6000} // Adjust as needed
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <MuiAlert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+          Wrong Email or Password.
+        </MuiAlert>
+      </Snackbar>
         </div>
       </Container>
     </ThemeProvider>
