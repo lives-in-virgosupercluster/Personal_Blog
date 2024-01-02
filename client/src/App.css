@@ -154,7 +154,8 @@ nav{
     align-items: center;
   }
   .post-Name{
-    width: 50%;
+    width: 70%;
+
   }
   .logtext{
     color:whitesmoke;
@@ -191,6 +192,9 @@ nav{
       height: 5rem;
       width: 9rem;
 
+    }
+    .post-name{
+      width: 50%;
     }
   }
   @media(max-width:300px){
