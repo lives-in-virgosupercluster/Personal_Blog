@@ -6,7 +6,15 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import axios from 'axios'; // Import Axios
 import { useNavigate } from 'react-router-dom'; 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 function MyForm() {
+  const theme=createTheme( {palette: {
+    background: {
+      default: '#fff', // Set the default background color to white
+    },
+  },
+});
   const [formData, setFormData] = useState({
     username: '',
     title: '',
@@ -54,7 +62,9 @@ function MyForm() {
   };
 
   return (
-    <Container maxWidth="md">
+   <ThemeProvider theme={theme}>
+    <Container maxWidth="md" sx={{backgroundColor:'white'}}>
+      <CssBaseline/>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -158,6 +168,7 @@ function MyForm() {
         </Grid>
       </form>
     </Container>
+    </ThemeProvider>
   );
 }
 
