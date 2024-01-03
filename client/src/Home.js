@@ -9,6 +9,9 @@ import Sidebar from "./Sidebar";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   darkButton: {
@@ -26,6 +29,31 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none', 
     padding:'0.1rem'
     
+  },
+  card: {
+    // marginBottom: '20px',
+    marginBottom:'2rem',
+    backgroundColor: ' #50b8e7;',
+    width:"40%",
+    height:"200%",
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    border: '0.2rem solid #0047AB', 
+    borderRadius:'1rem',// Add border style here
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  },
+  cardContent: {
+    // padding: '16px',
+  },
+  cardTitle: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    font:'Roboto Slab'
+  },
+  cardText: {
+    fontSize: '1.2rem',
+    color: '#333',
   },
 }));
 function Home(){
@@ -98,17 +126,26 @@ return (
             
            
 }
-      <div className="post">
-      {posts.map((post, index) => (
-        <div className="posts" key={index}>
-          {/* <img src="https://www.pluralsight.com/content/dam/pluralsight2/siege-blog-assets/scrum-SAFe-thumbnail.png" alt={post.title} /> */}
-          <p>
-            <header className="postheader"> <Link to={`/post/${post._id}`} style={{ textDecoration: 'none' }}>{post.title}</Link></header>
-           <span className="contentpara">{post.subcontent.slice(0, 200)}{post.subcontent.length > 200 ? '...' : ''}</span> 
-          </p>
+<div className="post">
+          {posts.map((post, index) => (
+            <Card key={index} className={classes.card}>
+              <CardContent className={classes.cardContent}>
+                <Typography className={classes.cardTitle} style={{fontFamily:'Roboto Slab ,sans-serif'}}>
+                  <Link
+                    to={`/post/${post._id}`}
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    {post.title}
+                  </Link>
+                </Typography>
+                <Typography className={classes.cardText}>
+                  {post.subcontent.slice(0, 200)}
+                  {post.subcontent.length > 100 ? '...' : ''}
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      ))}
-    </div>
      
     </main>
     <aside className="sidebar">
@@ -121,3 +158,5 @@ return (
 //   isLoggedIn:state.auth.isLoggedIn,
 // })
 export default Home;
+
+
