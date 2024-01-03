@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
   },
   menuPaper: {
-    backgroundColor: '#666',
+    backgroundColor: '#000',
   },
   menuItem: {
-    color: '#fff',
+    color: 'grey',
     '&:hover': {
       backgroundColor: '#999',
     },
@@ -51,9 +51,9 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" className={classes.appBar}>
-      <Toolbar>
-        <Typography variant="h6" className={classes.title}>
+    <AppBar position="static" className={classes.appBar} style={{ backgroundColor: 'black' }}>
+      <Toolbar >
+        <Typography variant="h6" className={classes.title} >
           <img src={logo} alt="" className="logo" />
         </Typography>
         <IconButton
@@ -66,6 +66,7 @@ const Navbar = () => {
           <MenuIcon />
         </IconButton>
         <Menu
+        
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}
@@ -73,10 +74,11 @@ const Navbar = () => {
           PaperProps={{
             className: classes.menuPaper,
           }}
+          // style={{backgroundColor:'grey'}}
         >
-          <List>
+          <List >
             <Link to='/' style={{ textDecoration: 'none' }}>
-              <ListItem button onClick={handleMenuClose} className={classes.menuItem}>
+              <ListItem button onClick={handleMenuClose} className={classes.menuItem} >
                 <ListItemText primary="Home" />
               </ListItem>
             </Link>

@@ -42,7 +42,14 @@ const useStyles = makeStyles((theme) => ({
     border: '0.2rem solid #0047AB', 
     borderRadius:'1rem',// Add border style here
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    transition: 'background-color 0.3s ease', // Add transition for smooth color change
+
+  '&:hover': {
+    backgroundColor: '#0047AB', // Change background color on hover
+    cursor: 'pointer', // Optionally, change cursor on hover
   },
+  },
+  
   cardContent: {
     // padding: '16px',
   },
@@ -54,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
   cardText: {
     fontSize: '1.2rem',
     color: '#333',
+    
   },
 }));
 function Home(){
@@ -138,7 +146,7 @@ return (
                     {post.title}
                   </Link>
                 </Typography>
-                <Typography className={classes.cardText}>
+                <Typography className={classes.cardText} style={{fontFamily:'Noto Sans,sans-serif'}}>
                   {post.subcontent.slice(0, 200)}
                   {post.subcontent.length > 100 ? '...' : ''}
                 </Typography>
