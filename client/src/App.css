@@ -133,7 +133,7 @@ nav{
     height: 100vh; /* Make the sidebar take up the full height of the viewport */
     background-color: black; /* Adjust the background color as needed */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for a visual effect */
-    margin-top: -18rem;
+    margin-top: -16rem;
   }
   
   /* Add any other styles you need for your sidebar content */

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
-    border: '0.2rem solid #0047AB', 
+    // border: '0.2rem solid #0047AB', 
     borderRadius:'1rem',// Add border style here
     boxShadow: '10px 10px 5px 0px rgba(63,63,63,1);',
     transition: 'background-color 0.3s ease', // Add transition for smooth color change
