@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     border: '0.2rem solid #0047AB', 
     borderRadius:'1rem',// Add border style here
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    boxShadow: '10px 10px 5px 0px rgba(63,63,63,1);',
     transition: 'background-color 0.3s ease', // Add transition for smooth color change
 
   '&:hover': {
